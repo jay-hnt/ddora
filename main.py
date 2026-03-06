@@ -407,16 +407,17 @@ class GameApp:
             })
 
     def _spawn_landing_particles(self, x: float, y: float):
-        """착지 시 먼지·충격 이펙트."""
-        for _ in range(12):
-            angle = random.uniform(0, math.pi) + random.uniform(-0.4, 0.4)
-            speed = random.uniform(60, 140)
+        """착지 시 짧은 먼지 이펙트 (다음 점프 전에 금방 사라지도록)."""
+        for _ in range(5):
+            angle = random.uniform(0, math.pi) + random.uniform(-0.3, 0.3)
+            speed = random.uniform(30, 70)
+            life_max = random.uniform(0.06, 0.10)
             self._particles.append({
-                "x": x + random.uniform(-12, 12), "y": y,
-                "vx": math.cos(angle) * speed * random.uniform(0.3, 1.0),
-                "vy": -abs(math.sin(angle)) * speed * random.uniform(0.4, 0.9),
-                "life": random.uniform(0.18, 0.32), "life_max": 0.32,
-                "r": random.uniform(4, 9), "color": COLOR_DUST,
+                "x": x + random.uniform(-6, 6), "y": y,
+                "vx": math.cos(angle) * speed * 0.4,
+                "vy": -abs(math.sin(angle)) * speed * 0.3,
+                "life": life_max, "life_max": life_max,
+                "r": random.uniform(2, 4), "color": COLOR_DUST,
             })
 
     def _start_jump_to(self, landing_col: int):
@@ -1088,3 +1089,4 @@ if __name__ == "__main__":
         app = GameApp()
         await app.run_async()
     asyncio.run(main())
+
