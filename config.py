@@ -106,9 +106,9 @@ COLOR_GAME_OVER = (200, 70, 75)
 COLOR_GAME_OVER_BG = (50, 52, 65)
 COLOR_GAME_OVER_TEXT = (255, 255, 255)   # 게임오버 시 글자 하얀색
 
-# 점프·착지 이펙트
-LANDING_SHAKE_DURATION = 0.08   # 착지 시 화면 흔들림 길이(초)
-LANDING_SHAKE_STRENGTH = 3     # 흔들림 강도(픽셀)
+# 점프·착지 이펙트 (과하면 다음 점프 타이밍이 부자연스러워짐 → 짧고 은은하게)
+LANDING_SHAKE_DURATION = 0.0   # 착지 시 화면 흔들림 끔 (다음 점프 흐름 방해 안 함)
+LANDING_SHAKE_STRENGTH = 0
 COLOR_DUST = (140, 125, 100)   # 착지 먼지
 COLOR_TAKEOFF = (200, 190, 170)  # 점프 시 발밑 이펙트
 
@@ -120,3 +120,4 @@ GAME_OVER_FADE_DURATION = 0.5
 GAME_OVER_TEXT_APPEAR = 0.15
 COLOR_TEAR = (200, 230, 255)
 COLOR_TEAR_SHINE = (240, 248, 255)
+
